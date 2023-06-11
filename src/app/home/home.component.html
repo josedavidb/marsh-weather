@@ -1,0 +1,35 @@
+
+<div class="sky-background">
+<div class="container d-flex align-items-center justify-content-center flex-column">
+    <div class="mb-3 my-5">
+        <label for="citySelect" class="text-white">Select a city</label>
+        <select class="form-select" id="citySelect" aria-label="Select a US city" [(ngModel)]="currentCity" (change)="loadCityInfo()">
+            <option *ngFor="let city of citiesList" [ngValue]="city">{{city.name}}, {{city.state}}</option>
+        </select>
+    </div>
+    <div class="card" style="width: 20rem;" [ngClass]="getBackgroundColor()">
+        <div class="card-body" >
+            <div class="d-flex justify-content-center align-items-center" *ngIf="isLoading">
+                <div class="spinner-border" role="status" >
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div *ngIf="!isLoading">
+                <div class="d-flex justify-content-center align-items-center mb-3">
+                    <fa-icon [icon]="getWeatherIcon()" size="3x"></fa-icon>
+                </div>
+                <h5 class="card-title text-center">{{ currentCity.name }}</h5>
+                <h2 class="text-center">{{ weatherCity?.current_weather.temperature }} °C</h2>
+                <p class="card-text text-center">Pressuare: {{ weatherCity?.current_weather?.pressuare }} | Humidity: {{ weatherCity?.current_weather?.humidity }}%</p>
+                <hr>
+                <p>
+                    Tomorrow {{weatherCity.current_weather.tomorrow_temperature}}°C
+                </p>
+                <p>
+                    Day after tomorrow {{weatherCity.current_weather.after_tomorrow_temperature}}°C
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

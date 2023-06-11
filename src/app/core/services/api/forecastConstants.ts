@@ -45,7 +45,7 @@ export class ForecastConstants {
             longitude: -104.984856, 
         },
         {
-            name: 'Hartford<br>', 
+            name: 'Hartford', 
             state: 'Connecticut', 
             latitude: 41.764046, 
             longitude: -72.682198, 
@@ -69,7 +69,7 @@ export class ForecastConstants {
             longitude: -84.281296, 
         },
         {
-            name: 'Atlanta<br>', 
+            name: 'Atlanta', 
             state: 'Georgia', 
             latitude: 33.749027, 
             longitude: -84.388229, 
